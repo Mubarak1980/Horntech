@@ -1,44 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HornTech</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HornTech Poster</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #0a0a0a;
-    }
+        body {
+            background: #0b0b0b;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+        }
 
-    .btn {
-      padding: 18px 40px;
-      border: 2px solid cyan;
-      border-radius: 12px;
-      background: transparent;
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.4s;
-    }
+        .poster {
+            max-width: 800px;
+            width: 100%;
+            background: #000000;
+            border: 2px solid #1f8b4c;
+            border-radius: 32px;
+            padding: 48px 40px;
+            color: #e0e0e0;
+            box-shadow: 0 0 40px rgba(31, 139, 76, 0.15);
+            transition: transform 0.2s;
+        }
 
-    .btn:hover {
-      background: cyan;
-      color: black;
-      transform: scale(1.1);
-      box-shadow: 0 0 30px cyan;
-    }
-  </style>
+        .poster:hover {
+            transform: scale(1.01);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #1f8b4c;
+            padding-bottom: 16px;
+            margin-bottom: 28px;
+        }
+
+        .horntech {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(31, 139, 76, 0.6);
+        }
+
+        .horntech span {
+            color: #1f8b4c;
+        }
+
+        .globe {
+            font-size: 32px;
+        }
+
+        .brain-icon {
+            font-size: 22px;
+            background: #1f8b4c;
+            color: #000;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-weight: 700;
+        }
+
+        .fact-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #c0c0c0;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .fact-title .light {
+            color: #1f8b4c;
+        }
+
+        .code-block {
+            background: #141414;
+            border-left: 6px solid #1f8b4c;
+            padding: 18px 22px;
+            border-radius: 12px;
+            margin: 16px 0 22px 0;
+            font-size: 18px;
+            color: #b0f0b0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: 'Courier New', monospace;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+        }
+
+        .code-block .comment {
+            color: #6a9955;
+        }
+
+        .code-block .func {
+            color: #dcdcaa;
+        }
+
+        .code-block .string {
+            color: #ce9178;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #bbbbbb;
+            margin: 16px 0 20px 0;
+            padding: 10px 0;
+            border-top: 1px dashed #2a2a2a;
+            border-bottom: 1px dashed #2a2a2a;
+        }
+
+        .highlight {
+            color: #1f8b4c;
+            font-weight: 600;
+        }
+
+        .ethics {
+            background: #0f0f0f;
+            padding: 18px 22px;
+            border-radius: 16px;
+            margin: 18px 0 20px 0;
+            border: 1px solid #1f8b4c55;
+        }
+
+        .ethics p {
+            font-size: 18px;
+            color: #d4d4d4;
+            line-height: 1.6;
+        }
+
+        .ethics .fire {
+            color: #ff8c42;
+        }
+
+        .hashtags {
+            font-size: 16px;
+            color: #1f8b4c;
+            letter-spacing: 1px;
+            word-spacing: 8px;
+            margin-top: 18px;
+            border-top: 1px solid #1f8b4c33;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .hashtags span {
+            background: #1f8b4c22;
+            padding: 4px 12px;
+            border-radius: 30px;
+            margin: 0 4px;
+        }
+
+        @media (max-width: 550px) {
+            .poster {
+                padding: 28px 18px;
+            }
+            .header {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .horntech {
+                font-size: 22px;
+            }
+            .code-block {
+                font-size: 15px;
+                padding: 14px;
+            }
+            .description {
+                font-size: 16px;
+            }
+            .ethics p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="poster">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="horntech">🌍 <span>HORN</span>TECH</div>
+            <div class="globe">🧠</div>
+        </div>
 
-  <button class="btn">HOVER ME 🚀</button>
+        <!-- TITLE -->
+        <div class="fact-title">
+            <span class="light">⚡</span> Did you know?
+        </div>
 
+        <!-- CODE BLOCK -->
+        <div class="code-block">
+            <span class="comment">// JavaScript can inspect the URL of the current webpage</span>
+            <br />
+            <span class="func">console</span>.<span class="func">log</span>(<span class="string">window.location.href</span>);
+            <br /><br />
+            <span class="comment">// 🌐 Shows the complete URL of the page you're visiting</span>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="description">
+            💻 Ethical hackers can use browser tools like this to understand how a web application handles <span class="highlight">URLs</span> and <span class="highlight">parameters</span>.
+        </div>
+
+        <!-- ETHICS MESSAGE -->
+        <div class="ethics">
+            <p>
+                🔥 <strong>Learn the tools.</strong> Understand the system. <span class="fire">Hack ethically.</span>
+            </p>
+        </div>
+
+        <!-- HASHTAGS -->
+        <div class="hashtags">
+            <span>#HornTech</span>
+            <span>#JavaScript</span>
+            <span>#EthicalHacking</span>
+            <span>#CyberSecurity</span>
+            <span>#WebSecurity</span>
+            <span>#Coding</span>
+            <span>#Programming</span>
+        </div>
+    </div>
 </body>
-</html>
+  </html>
