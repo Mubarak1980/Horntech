@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HornTech - URL Inspector</title>
+    <title>HornTech - URL Security Inspector</title>
+
     <style>
-        /* ---------- BLACK THEME STYLING ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -25,7 +25,7 @@
         .container {
             max-width: 820px;
             width: 100%;
-            background: #000000;
+            background: #000;
             border: 2px solid #1f8b4c;
             border-radius: 28px;
             padding: 44px 38px;
@@ -33,7 +33,6 @@
             box-shadow: 0 0 50px rgba(31, 139, 76, 0.12);
         }
 
-        /* HEADER */
         .header {
             display: flex;
             justify-content: space-between;
@@ -49,7 +48,7 @@
             font-size: 30px;
             font-weight: 700;
             letter-spacing: 1.5px;
-            color: #ffffff;
+            color: #fff;
         }
 
         .logo span {
@@ -65,7 +64,6 @@
             font-size: 18px;
         }
 
-        /* TITLE */
         .fact-title {
             font-size: 22px;
             font-weight: 600;
@@ -73,50 +71,47 @@
             margin-bottom: 14px;
         }
 
-        .fact-title .accent {
+        .accent {
             color: #1f8b4c;
         }
 
-        /* ----- YOUR CODE BLOCK (EXACTLY AS YOU GAVE) ----- */
         .code-block {
-            background: #111111;
+            background: #111;
             border-left: 6px solid #1f8b4c;
             padding: 20px 24px;
             border-radius: 12px;
-            margin: 12px 0 10px 0;
-            font-size: 18px;
+            margin: 12px 0 10px;
+            font-size: 17px;
             color: #b8f0b8;
             overflow-x: auto;
             white-space: pre-wrap;
             word-break: break-word;
-            font-family: 'Courier New', monospace;
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.9);
             line-height: 1.7;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.9);
         }
 
-        .code-block .comment {
+        .comment {
             color: #6a9955;
         }
 
-        .code-block .method {
+        .method {
             color: #dcdcaa;
         }
 
-        .code-block .string {
+        .string {
             color: #ce9178;
         }
 
-        .code-block .keyword {
+        .keyword {
             color: #c586c0;
         }
 
-        /* ----- LIVE OUTPUT SECTION (SHOWS YOUR CODE IN ACTION) ----- */
         .output-box {
             background: #0d0d0d;
             border: 1px solid #1f8b4c55;
             border-radius: 14px;
             padding: 18px 22px;
-            margin: 18px 0 16px 0;
+            margin: 18px 0 16px;
         }
 
         .output-label {
@@ -131,64 +126,59 @@
             background: #1a1a1a;
             padding: 14px 18px;
             border-radius: 10px;
-            font-size: 17px;
+            font-size: 15px;
             color: #7ecf7e;
             word-break: break-all;
-            font-family: 'Courier New', monospace;
             border: 1px dashed #2a5a3a;
             min-height: 50px;
+            line-height: 1.7;
         }
 
-        .output-value .label {
-            color: #888;
-            font-weight: 300;
-        }
-
-        .output-value .url {
+        .url {
             color: #4fc3f7;
             font-weight: 600;
         }
 
-        /* DESCRIPTION */
+        .parameter {
+            color: #f0c674;
+        }
+
         .description {
             font-size: 17px;
             line-height: 1.7;
-            color: #bbbbbb;
-            margin: 18px 0 16px 0;
+            color: #bbb;
+            margin: 18px 0 16px;
             padding: 12px 0;
             border-top: 1px dashed #222;
             border-bottom: 1px dashed #222;
         }
 
-        .description .highlight {
+        .highlight {
             color: #1f8b4c;
             font-weight: 600;
         }
 
-        /* ETHICS */
         .ethics {
             background: #0f0f0f;
             padding: 16px 22px;
             border-radius: 14px;
-            margin: 14px 0 16px 0;
+            margin: 14px 0 16px;
             border: 1px solid #1f8b4c44;
         }
 
         .ethics p {
-            font-size: 18px;
+            font-size: 17px;
             color: #d0d0d0;
             line-height: 1.6;
         }
 
-        .ethics .fire {
+        .fire {
             color: #ff8c42;
         }
 
-        /* HASHTAGS */
         .hashtags {
             font-size: 15px;
             color: #1f8b4c;
-            letter-spacing: 0.5px;
             word-spacing: 6px;
             margin-top: 16px;
             padding-top: 18px;
@@ -200,148 +190,195 @@
             background: #1f8b4c20;
             padding: 4px 12px;
             border-radius: 30px;
-            margin: 0 3px;
+            margin: 0 3px 4px;
             display: inline-block;
-            margin-bottom: 4px;
         }
 
-        /* BUTTON */
         .btn-test {
             background: #1f8b4c;
             color: #000;
             border: none;
-            padding: 10px 28px;
+            padding: 10px 20px;
             border-radius: 40px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             font-family: 'Courier New', monospace;
             cursor: pointer;
             margin-top: 14px;
-            transition: all 0.2s;
-            letter-spacing: 0.5px;
         }
 
         .btn-test:hover {
             background: #2aad5e;
             transform: scale(1.02);
-            box-shadow: 0 0 25px rgba(31, 139, 76, 0.4);
         }
 
         @media (max-width: 550px) {
-            .container { padding: 24px 16px; }
-            .logo { font-size: 24px; }
-            .code-block { font-size: 15px; padding: 14px; }
-            .output-value { font-size: 14px; }
-            .hashtags span { font-size: 13px; }
+            .container {
+                padding: 24px 16px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .code-block {
+                font-size: 14px;
+                padding: 14px;
+            }
+
+            .output-value {
+                font-size: 13px;
+            }
+
+            .hashtags span {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <!-- HEADER -->
-        <div class="header">
-            <div class="logo">🌍 <span>HORN</span>TECH</div>
-            <div class="badge">🧠 JS</div>
-        </div>
+<div class="container">
 
-        <!-- TITLE -->
-        <div class="fact-title">
-            <span class="accent">⚡</span> Did you know?
-        </div>
-
-        <!-- ============================================ -->
-        <!-- YOUR EXACT CODE — DISPLAYED AS-IS            -->
-        <!-- ============================================ -->
-        <div class="code-block">
-            <span class="comment">// JavaScript can inspect the URL of the current webpage:</span>
-            <br />
-            <span class="method">console</span>.<span class="method">log</span>(<span class="string">window.location.href</span>);
-            <br /><br />
-            <span class="comment">// 🌐 It shows the complete URL of the page you're currently visiting.</span>
-        </div>
-
-        <!-- ============================================ -->
-        <!-- LIVE DEMO — YOUR CODE ACTUALLY RUNNING       -->
-        <!-- ============================================ -->
-        <div class="output-box">
-            <div class="output-label">▶ LIVE OUTPUT (your code is running)</div>
-            <div class="output-value" id="urlDisplay">
-                <span class="label">📍 Current URL:</span>
-                <span class="url" id="currentUrl">Loading...</span>
-            </div>
-
-            <!-- Button to re-run your code manually -->
-            <button class="btn-test" onclick="runMyCode()">🔄 Run <span style="color:#000; background:#fff; padding:0 8px; border-radius:4px;">console.log(window.location.href)</span> again</button>
-        </div>
-
-        <!-- DESCRIPTION -->
-        <div class="description">
-            💻 Ethical hackers can use browser tools like this to understand how a web application handles <span class="highlight">URLs</span> and <span class="highlight">parameters</span>.
-        </div>
-
-        <!-- ETHICS -->
-        <div class="ethics">
-            <p>
-                🔥 <strong>Learn the tools.</strong> Understand the system. <span class="fire">Hack ethically.</span>
-            </p>
-        </div>
-
-        <!-- HASHTAGS -->
-        <div class="hashtags">
-            <span>#HornTech</span>
-            <span>#JavaScript</span>
-            <span>#EthicalHacking</span>
-            <span>#CyberSecurity</span>
-            <span>#WebSecurity</span>
-            <span>#Coding</span>
-            <span>#Programming</span>
-        </div>
+    <div class="header">
+        <div class="logo">🌍 <span>HORN</span>TECH</div>
+        <div class="badge">🛡️ JS SECURITY</div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- YOUR EXACT JAVASCRIPT CODE — RUNS ON PAGE    -->
-    <!-- ============================================ -->
-    <script>
-        // -----------------------------------------------------------
-        // YOUR EXACT CODE (copied verbatim)
-        // JavaScript can inspect the URL of the current webpage:
+    <div class="fact-title">
+        <span class="accent">⚡</span> Ethical Security Check
+    </div>
+
+    <!-- URL CODE -->
+    <div class="code-block">
+<span class="comment">// Get the current webpage URL</span>
+<span class="method">console</span>.<span class="method">log</span>(<span class="string">window.location.href</span>);
+
+<span class="comment">// Read parameters from the URL</span>
+<span class="keyword">const</span> params =
+    <span class="keyword">new</span> URLSearchParams(
+        window.location.search
+    );
+
+<span class="comment">// Display URL parameters</span>
+<span class="keyword">for</span> (<span class="keyword">const</span> [key, value] <span class="keyword">of</span> params) {
+    <span class="method">console</span>.<span class="method">log</span>(`${key} = ${value}`);
+}
+    </div>
+
+    <!-- LIVE OUTPUT -->
+    <div class="output-box">
+
+        <div class="output-label">
+            ▶ LIVE OUTPUT
+        </div>
+
+        <div class="output-value">
+
+            📍 Current URL:<br>
+            <span class="url" id="currentUrl">
+                Loading...
+            </span>
+
+            <br><br>
+
+            🔍 URL Parameters:<br>
+            <span id="parameters">
+                Checking...
+            </span>
+
+        </div>
+
+        <button class="btn-test" onclick="runSecurityCheck()">
+            🔄 Run Security Check
+        </button>
+
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="description">
+        💻 Security researchers can inspect
+        <span class="highlight">URL parameters</span>
+        to understand how web applications receive and process
+        user-controlled input.
+    </div>
+
+    <!-- ETHICS -->
+    <div class="ethics">
+        <p>
+            🛡️ <strong>Understand the system.</strong>
+            Test responsibly.
+            <span class="fire">Hack ethically.</span>
+        </p>
+    </div>
+
+    <!-- HASHTAGS -->
+    <div class="hashtags">
+        <span>#HornTech</span>
+        <span>#JavaScript</span>
+        <span>#EthicalHacking</span>
+        <span>#CyberSecurity</span>
+        <span>#WebSecurity</span>
+        <span>#Coding</span>
+        <span>#Programming</span>
+    </div>
+
+</div>
+
+
+<script>
+
+    function runSecurityCheck() {
+
+        // Get the complete URL
+        const url = window.location.href;
+
+        // Get everything after ?
+        const params =
+            new URLSearchParams(window.location.search);
+
+        // Display URL
+        document.getElementById("currentUrl")
+            .textContent = url;
+
+        const parameterBox =
+            document.getElementById("parameters");
+
+        parameterBox.innerHTML = "";
+
+        // Check whether parameters exist
+        if ([...params].length === 0) {
+
+            parameterBox.textContent =
+                "No URL parameters found.";
+
+        } else {
+
+            // Display each parameter
+            for (const [key, value] of params) {
+
+                const line =
+                    document.createElement("div");
+
+                line.innerHTML =
+                    `🔑 <span class="parameter">${key}</span> = ${value}`;
+
+                parameterBox.appendChild(line);
+
+                // Also show it in console
+                console.log(`${key} = ${value}`);
+            }
+        }
+
+        // Original URL inspection
         console.log(window.location.href);
-        // 🌐 It shows the complete URL of the page you're currently visiting.
-        // -----------------------------------------------------------
+    }
 
-        // ---- ADDITION: Display it on the page so you can SEE it ----
-        function updateUrlDisplay() {
-            const url = window.location.href;
-            document.getElementById('currentUrl').textContent = url;
+    // Run automatically when page loads
+    runSecurityCheck();
 
-            // Also log to console (your exact code)
-            console.log('✅ Your code ran: window.location.href =', url);
-        }
-
-        // Run your code on page load
-        updateUrlDisplay();
-
-        // Function for the button — runs YOUR CODE again
-        function runMyCode() {
-            // *** THIS IS YOUR EXACT CODE ***
-            console.log(window.location.href);
-            // ********************************
-
-            // Also update the display
-            updateUrlDisplay();
-
-            // Visual feedback
-            const btn = document.querySelector('.btn-test');
-            btn.textContent = '✅ Ran!';
-            setTimeout(() => {
-                btn.innerHTML = '🔄 Run <span style="color:#000; background:#fff; padding:0 8px; border-radius:4px;">console.log(window.location.href)</span> again';
-            }, 1200);
-        }
-
-        // Make the function globally accessible for the button
-        window.runMyCode = runMyCode;
-    </script>
+</script>
 
 </body>
 </html>
